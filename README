@@ -1,0 +1,18 @@
+Application.ini:
+
+booking.username = "username"
+booking.password = "password"
+booking.server   = "http://distribution-xml.booking.com/xml-rpc"
+booking.language = "en"
+
+Controller.php:
+
+public function init()
+{
+    $this->_options = Zend_Registry::get('config')->booking->toArray();
+    $this->_booking = new Booking_Service_Booking($this->_options);
+}
+
+Usage:
+
+var_dump($this->_booking->getCountries());
